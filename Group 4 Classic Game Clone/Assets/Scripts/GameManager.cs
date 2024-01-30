@@ -112,7 +112,10 @@ public class GameManager : MonoBehaviour
 
     public void PowerUpCollected(PowerUp junk)
     {
-        //Change Ghost State
+        for (int i = 0; i < this.enemies.Length; i++)
+        {
+            this.enemies[i].frightened.Enable(junk.duration);
+        }
         JunkCollected(junk);
         CancelInvoke();
         Invoke(nameof(ResetEnemyFactor), junk.duration);

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4156250169483387912}
   - component: {fileID: 5254374243795911714}
+  - component: {fileID: 4299082543589182044}
   m_Layer: 7
   m_Name: MoveIndicator
   m_TagString: Untagged
@@ -84,6 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4299082543589182044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179556496529017813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0549e122c5da1f943a3a052cc3d469f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: {fileID: 21300000, guid: 7391304e6dcdc594484288107bfd217f, type: 3}
+  down: {fileID: 21300000, guid: b97167c35748db84fb4d32f4f242922a, type: 3}
+  left: {fileID: 21300000, guid: d65aa956b7569874fab274083826a77f, type: 3}
+  right: {fileID: 21300000, guid: 07ddb51374d9f19458dad756bbbcd880, type: 3}
 --- !u!1 &1454475313796755957
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0
+  insideHome: {fileID: 0}
+  leave: {fileID: 0}
 --- !u!114 &-5290628393616112604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +474,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 8
+  body: {fileID: 7702538378344504552}
+  moveIndicator: {fileID: 5254374243795911714}
+  afraid: {fileID: 1238445862098939879}
+  flashing: {fileID: 4816979178404432342}
 --- !u!1 &8659638728276904483
 GameObject:
   m_ObjectHideFlags: 0

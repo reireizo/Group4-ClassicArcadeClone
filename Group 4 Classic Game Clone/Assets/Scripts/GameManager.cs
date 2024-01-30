@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +17,13 @@ public class GameManager : MonoBehaviour
     public int lives { get; private set; }
     public int enemyFactor { get; private set; } = 1;
 
+    public TMP_Text livesText;
+    public TMP_Text scoreText;
+    public TMP_Text deathMessage;
+    public TMP_Text gameOverText;
+    public Image gameOverBG;
+    public Image deathMessageBG;
+
     private void Start()
     {
         NewGame();
@@ -21,6 +31,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        livesText.SetText("Lives: " + lives);
+        scoreText.SetText("Score: " + score);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
         if (this.lives <= 0 && Input.anyKeyDown)
         {
             NewGame();
@@ -31,6 +49,12 @@ public class GameManager : MonoBehaviour
     {
         SetScore(0);
         SetLives(3);
+
+        this.deathMessage.enabled = false;
+        this.deathMessageBG.enabled = false;
+        this.gameOverText.enabled = false;
+        this.gameOverBG.enabled = false;
+
         NewRound();
     }
 
@@ -47,6 +71,8 @@ public class GameManager : MonoBehaviour
     private void ResetBoard()
     {
         ResetEnemyFactor();
+        this.deathMessage.enabled = false;
+        this.deathMessageBG.enabled = false;
 
         for (int i = 0; i < this.enemies.Length; i++)
         {
@@ -64,6 +90,12 @@ public class GameManager : MonoBehaviour
         }
 
         this.player.gameObject.SetActive(false);
+
+        this.deathMessage.enabled = false;
+        this.deathMessageBG.enabled = false;
+
+        this.gameOverText.enabled = true;
+        this.gameOverBG.enabled = true;
     }
 
     private void SetScore(int score)
@@ -86,6 +118,9 @@ public class GameManager : MonoBehaviour
     public void PlayerDefeated()
     {
         this.player.gameObject.SetActive(false);
+        this.deathMessageBG.enabled = true;
+        this.deathMessage.enabled = true;
+
         SetLives (this.lives - 1);
         if (this.lives > 0)
         {

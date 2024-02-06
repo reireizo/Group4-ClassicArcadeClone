@@ -41,15 +41,15 @@ public class GameManager : MonoBehaviour
 
         if (this.lives <= 0 && Input.anyKeyDown)
         {
-            NewGame();
+            SceneManager.LoadScene("Game");
         }
     }
 
     private void NewGame()
     {
         SetScore(0);
-        SetLives(3);
-
+        SetLives(5);
+        
         this.deathMessage.enabled = false;
         this.deathMessageBG.enabled = false;
         this.gameOverText.enabled = false;
@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
         if (!HasRemainingJunk())
         {
             this.player.gameObject.SetActive(false);
-            Invoke(nameof(NewRound), 3.0f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

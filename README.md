@@ -10,4 +10,5 @@ My (Nathan Irwin) specific role in the group was the coder. I handled the creati
 - Pellets and Power Up
 - Moving to a New Stage Upon Eating All Pellets
 - Menu Screens
+
 If there is something I wish I could have done for this project, it was the implementation of sound. The game only has music. I also wish I had learned how to carry over score between scenes.
